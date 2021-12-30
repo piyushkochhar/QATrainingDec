@@ -28,8 +28,16 @@ public class SeleniumTest {
 
 	@BeforeMethod
 	public void setup() {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/chromedriver");
+		String os = System.getProperty("os.name").toLowerCase();
+		if(os.contains("win")) {
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\chromedriver.exe");
+		}
+		else if(os.contains("mac")) {
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/chromedriver");
+		}
+		
 		this.driver = new ChromeDriver();
+		this.driver.manage().window().maximize();
 		this.driver.navigate().to(url);
 	}
 	
