@@ -9,7 +9,7 @@ import demoqa.pages.DropDownListPage;
 import framework.TestBase;
 
 public class DropDownListTest extends TestBase {
-	@Test
+	@Test(groups = { "dropDownUI" })	
 	public void canSelectDropDownListValue() {
 		String expectedResultText = "Indigo";
 
@@ -20,7 +20,7 @@ public class DropDownListTest extends TestBase {
 				"the select option " + expectedResultText + " was not set");
 	}
 
-	@Test
+	@Test(groups = { "dropDownUI" })	
 	public void canGetAllOptions() {
 		String[] expectedOptions = { "Red", "Blue", "Green", "Yellow", "Purple", "Black", "White", "Voilet", "Indigo",
 				"Magenta", "Aqua" };
@@ -31,12 +31,12 @@ public class DropDownListTest extends TestBase {
 
 	}
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void setup() {
 		super.setup();
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void cleanup() {
 		super.cleanup();
 	}

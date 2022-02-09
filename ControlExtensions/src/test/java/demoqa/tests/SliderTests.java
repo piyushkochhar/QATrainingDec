@@ -4,14 +4,17 @@ import org.testng.annotations.Test;
 import framework.TestBase;
 import demoqa.pages.SliderPage;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
 public class SliderTests extends TestBase {
 
 	@Test
-	public void canSetSliderValue() {
-		String[] values = { "80", "17", "0", "100" };
+	@Parameters({ "sliderValue1", "sliderValue2", "sliderValue3", "sliderValue4" })
+	public void canSetSliderValue(String sliderValue1, String sliderValue2, String sliderValue3, String sliderValue4) {
+//		String[] values = { "80", "17", "0", "100" };
+		String[] values = {sliderValue1,sliderValue2, sliderValue3, sliderValue4};
 		String expectedResultText;
 		String resultSliderValue;
 

@@ -4,8 +4,10 @@ import org.testng.annotations.Test;
 import framework.TestBase;
 import demoqa.pages.HyperlinksPage;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 
 public class HyperlinkTests extends TestBase {
 
@@ -19,6 +21,16 @@ public class HyperlinkTests extends TestBase {
 		Assert.assertEquals(resultLabelText, expectedResultText,
 				"the hyperlink " + expectedResultText + " was not clicked");
 	}
+	
+	@BeforeSuite
+	 public void beforeSuite() {
+        System.out.println("Before Suite Setup");
+    }   
+	
+	@AfterSuite
+	 public void afterSuite() {
+       System.out.println("After Suite Teardown");
+   }   
 
 	@BeforeMethod
 	public void setup() {

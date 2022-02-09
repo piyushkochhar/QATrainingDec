@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+<suite name="Testing Suite">
+	<test name="Parallel Tests" parallel="methods" preserve-order="true">
+		<parameter name="sliderValue1" value="80" />
+		<parameter name="sliderValue2" value="17" />
+		<parameter name="sliderValue3" value="0" />
+		<parameter name="sliderValue4" value="100" />
+		<classes>
+			<class name="demoqa.tests.HyperlinkTests" />
+			<class name="demoqa.tests.SliderTests" />
+		</classes>
+	</test>
+	<test name="Group Tests">
+		<groups>
+			<run>
+				<include name="dropDownUI" />
+			</run>
+		</groups>
+		<classes>
+			<class name="demoqa.tests.DropDownListTest" />
+		</classes>
+	</test>
+</suite>
